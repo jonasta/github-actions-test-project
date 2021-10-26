@@ -5,28 +5,28 @@ on:
   workflow_dispatch:
 
 jobs:
-    job1:
+    ubuntu:
       name: First Job
       runs-on : ubuntu-latest
       steps:
       - name: Print Date Ubuntu
         run: date
-    job2:
+    windows:
       name: Second Job
       runs-on: windows-latest
       steps:
       - name: Print date windows
         run: Date
-    job3:
+    macOs:
       name: Third Job
       runs-on: macos-latest
       steps:
       - name: Print Date MacOS
         run: date
-    job4:
+    depends:
       name: Fourth Job
       runs-on: windows-2016
-      needs: [job1, job2, job3]
+      needs: [ubuntu, windows, macOs]
       steps:
       - name: Print date windows 2016
         run: Date
